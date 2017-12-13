@@ -23,7 +23,9 @@ https://github.com/wkentaro/real-harem/projects/1
 
 ---
 
-## Convert face to Female
+## Convert faces to female
+
+@wkenaro
 
 **Sample**
 
