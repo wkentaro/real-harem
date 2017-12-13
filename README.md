@@ -28,5 +28,7 @@ https://github.com/wkentaro/real-harem/projects/1
 **Sample**
 
 ```bash
-make stargan
+make stargan  # it translates gender of JSK lab members.
 ```
+
+![](.readme/stargan_transgender_jsk.jpg)
