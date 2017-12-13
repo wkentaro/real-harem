@@ -20,3 +20,13 @@
 ## TODO
 
 https://github.com/wkentaro/real-harem/projects/1
+
+---
+
+## Convert face to Female
+
+**Sample**
+
+```bash
+make stargan
+```
