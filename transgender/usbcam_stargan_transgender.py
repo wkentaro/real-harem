@@ -26,7 +26,7 @@ from sample_face2face import face_utils
 
 class Node(object):
 
-    def __init__(self):
+    def __init__(self, video=0):
         G_path = osp.join(stargan_dir, 'stargan_celebA/models/20_4000_G.pth')
         G = Generator(64, c_dim=5, repeat_num=6)
         G.load_state_dict(torch.load(G_path))
@@ -34,7 +34,8 @@ class Node(object):
         G.cuda()
         self.G = G
 
-        self.video = cv2.VideoCapture(0)
+        if video is not None:
+            self.video = cv2.VideoCapture(video)
 
         self.detector = dlib.get_frontal_face_detector()
         self.predictor = dlib.shape_predictor(osp.join(here, '../face2face/shape_predictor_68_face_landmarks.dat'))
