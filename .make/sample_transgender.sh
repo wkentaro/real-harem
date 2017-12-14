@@ -2,23 +2,24 @@
 
 ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 
-cd $ROOT
-
 set -x
 set -e
+
+cd $ROOT/transgender
+
+# install anaconda3
+$(pwd)/install_anaconda3.sh .
+set +x && source .anaconda3/bin/activate && set -x
 
 if [ ! -e StarGAN ]; then
   git clone https://github.com/wkentaro/StarGAN.git -b real-harem
 fi
 cd $(pwd)/StarGAN
 
-# install anaconda3
-$(pwd)/install_anaconda3.sh .
-
-set +x && source .anaconda3/bin/activate && set -x
-
 # install pytorch
-conda install cuda80 pytorch -c soumith
+conda install cuda80 pytorch torchvision -c soumith -y
+conda install dlib opencv -c menpo -y
+pip install scikit-image
 
 $(pwd)/install_face2016.sh
 

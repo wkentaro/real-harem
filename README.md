@@ -30,7 +30,7 @@ https://github.com/wkentaro/real-harem/projects/1
 **Sample**
 
 ```bash
-make sample_stargan  # it translates gender of JSK lab members.
+make sample_transgender  # it translates gender of JSK lab members.
 ```
 
 ![](.readme/stargan_transgender_jsk.jpg)
