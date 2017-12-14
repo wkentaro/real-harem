@@ -20,6 +20,7 @@ node = Node(video=None)
 def transgender():
     img = PIL.Image.open(request.files['file'].stream)
     img = np.asarray(img)
+    img.setflags(write=1)
     img2 = node.process(img, return_facemask=True)
     img_binary = ndarray_to_binary(img2)
     return send_file(io.BytesIO(img_binary), attachment_filename='image.jpg')
