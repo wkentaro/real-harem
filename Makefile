@@ -1,4 +1,7 @@
 all:
 
-stargan:
-	.make/stargan.sh
+sample_stargan:
+	.make/sample_stargan.sh
+
+sample_face2face:
+	.make/sample_face2face.sh

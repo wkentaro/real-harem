@@ -25,12 +25,25 @@ https://github.com/wkentaro/real-harem/projects/1
 
 ## Convert faces to female
 
-@wkenaro
+[@wkentaro](https://github.com/wkentaro)
 
 **Sample**
 
 ```bash
-make stargan  # it translates gender of JSK lab members.
+make sample_stargan  # it translates gender of JSK lab members.
 ```
 
 ![](.readme/stargan_transgender_jsk.jpg)
+
+
+## Paste face to face
+
+[@wkentaro](https://github.com/wkentaro)
+
+**Sample**
+
+```bash
+make sample_paste_face  # it paste face to face.
+```
+
+![](.readme/face2face_wkentaro.jpg)
