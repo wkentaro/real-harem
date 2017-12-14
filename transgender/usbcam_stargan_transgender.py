@@ -47,7 +47,8 @@ class Node(object):
 
             try:
                 img2 = self.process(img)
-            except:
+            except Exception as e:
+                print(e)
                 continue
             viz = np.hstack([img, img2])
             cv2.imshow('img2', viz[:, :, ::-1])
@@ -55,7 +56,9 @@ class Node(object):
 
     def process(self, img, return_facemask=False):
         gray = cv2.cvtColor(img, cv2.COLOR_RGB2GRAY)
-        dets = self.detector(gray, 1)
+        dets = self.detector(img, 1)
+
+        print('%d Faces are detected.' % len(dets))
 
         if return_facemask:
             img2_final = np.zeros_like(img)
@@ -63,16 +66,16 @@ class Node(object):
             img2_final = img.copy()
 
         img2 = img.copy()
-        H, W = img.shape[:2]
+        img_H, img_W = img.shape[:2]
         for d in dets:
             rect = face_utils.rect_to_bb(d)
-            shape = self.predictor(gray, d)
+            shape = self.predictor(img, d)
             shape = face_utils.shape_to_np(shape)
 
-            x1 = min(max(d.left(), 0), W)
-            x2 = min(max(d.right(), 0), W)
-            y1 = min(max(d.top(), 0), H)
-            y2 = min(max(d.bottom(), 0), H)
+            x1 = min(max(d.left(), 0), img_W)
+            x2 = min(max(d.right(), 0), img_W)
+            y1 = min(max(d.top(), 0), img_H)
+            y2 = min(max(d.bottom(), 0), img_H)
 
             # enlarge bbox
             cx = (x1 + x2) / 2.
@@ -86,18 +89,16 @@ class Node(object):
             x2 = x1 + bbox_w
             y1 = cy - (bbox_h / 2.)
             y2 = y1 + bbox_h
-            x1 = min(max(x1, 0), W)
-            x2 = min(max(x2, 0), W)
-            y1 = min(max(y1, 0), H)
-            y2 = min(max(y2, 0), H)
+            x1 = min(max(x1, 0), img_W)
+            x2 = min(max(x2, 0), img_W)
+            y1 = min(max(y1, 0), img_H)
+            y2 = min(max(y2, 0), img_H)
             y1, x1, y2, x2 = map(int, [y1, x1, y2, x2])
 
             cv2.rectangle(img2_final, (x1, y1), (x2, y2), (0, 0, 255), 2)
 
             # normalize
-            xi = img[y1:y2, x1:x2]
-            if xi.shape[0] * xi.shape[1] == 0:
-                continue
+            xi = img[y1:y2, x1:x2].copy()
             xi = cv2.resize(xi, (128, 128))
             xi = xi.astype(np.float32) / 255.
             xi = xi * 2 - 1
@@ -124,8 +125,8 @@ class Node(object):
             yi = (yi * 255).astype(np.uint8)
             yi = yi.transpose(1, 2, 0)
 
-            H, W = y2 - y1, x2 - x1
-            yi = cv2.resize(yi, (W, H))
+            roi_H, roi_W = y2 - y1, x2 - x1
+            yi = cv2.resize(yi, (roi_W, roi_H))
 
             img2[y1:y2, x1:x2] = yi
 
