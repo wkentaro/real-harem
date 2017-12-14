@@ -53,11 +53,15 @@ class Node(object):
             cv2.imshow('img2', viz[:, :, ::-1])
             cv2.waitKey(1)
 
-    def process(self, img):
+    def process(self, img, return_facemask=False):
         gray = cv2.cvtColor(img, cv2.COLOR_RGB2GRAY)
         dets = self.detector(gray, 1)
 
-        img2_final = img.copy()
+        if return_facemask:
+            img2_final = np.zeros_like(img)
+        else:
+            img2_final = img.copy()
+
         img2 = img.copy()
         H, W = img.shape[:2]
         for d in dets:
