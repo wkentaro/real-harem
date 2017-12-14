@@ -3,7 +3,6 @@
 import argparse
 import io
 import os.path as osp
-import subprocess
 
 import matplotlib.pyplot as plt
 import numpy as np
@@ -14,7 +13,8 @@ import skimage.io
 
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument('img_file', nargs='?', default='../face2face/face1.jpg')
+    parser.add_argument('img_file', nargs='?',
+                        default='../face2face/face1.jpg')
     args = parser.parse_args()
 
     if not osp.exists(args.img_file):
