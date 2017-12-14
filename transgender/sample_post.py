@@ -9,11 +9,12 @@ import matplotlib.pyplot as plt
 import numpy as np
 import PIL.Image
 import requests
+import skimage.io
 
 
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument('-i', '--img-file', default='../face2face/face1.jpg')
+    parser.add_argument('img_file', nargs='?', default='../face2face/face1.jpg')
     args = parser.parse_args()
 
     if not osp.exists(args.img_file):
@@ -23,10 +24,17 @@ def main():
     url = 'http://hoop.jsk.imi.i.u-tokyo.ac.jp'
     files = {'file': open(args.img_file, 'rb')}
     r = requests.post(url, files=files)
+    img1 = skimage.io.imread(args.img_file)
     if r.status_code == 200:
         img2 = PIL.Image.open(io.BytesIO(r.content))
         img2 = np.asarray(img2)
-        plt.imshow(img2)
+        mask = (img2 != 0).all(axis=2)
+        img1_dash = img1.copy()
+        img1_dash[mask] = img2[mask]
+        plt.subplot(121)
+        plt.imshow(img1)
+        plt.subplot(122)
+        plt.imshow(img1_dash)
         plt.show()
 
 
