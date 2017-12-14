@@ -20,7 +20,7 @@ def main():
         print('File does not exist: %s' % args.img_file)
         return
 
-    url = 'http://hoop.jsk.imi.i.u-tokyo.ac.jp:5000'
+    url = 'http://hoop.jsk.imi.i.u-tokyo.ac.jp'
     files = {'file': open(args.img_file, 'rb')}
     r = requests.post(url, files=files)
     if r.status_code == 200:
