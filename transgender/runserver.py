@@ -20,6 +20,11 @@ node = Node(video=None)
 def transgender():
     img = PIL.Image.open(request.files['file'].stream)
     img = np.asarray(img)
+    if img.ndim == 2:
+        img = np.tile(img[:, :, None], 3, axis=2)
+    elif img.shape[2] == 4:
+        # RGBA -> RGB
+        img = img[:, :, :3]
     img.setflags(write=1)
     img2 = node.process(img, return_facemask=True)
     img_binary = ndarray_to_binary(img2)

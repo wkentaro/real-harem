@@ -14,7 +14,7 @@ import skimage.io
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument('img_file', nargs='?',
-                        default='../face2face/face1.jpg')
+                        default='face1_rgba.png')
     args = parser.parse_args()
 
     if not osp.exists(args.img_file):
@@ -25,6 +25,10 @@ def main():
     files = {'file': open(args.img_file, 'rb')}
     r = requests.post(url, files=files)
     img1 = skimage.io.imread(args.img_file)
+    if img1.ndim == 2:
+        img1 = np.tile(img1[:, :, None], 3, axis=2)
+    elif img1.shape[2] == 4:
+        img1 = img1[:, :, :3]
     if r.status_code == 200:
         img2 = PIL.Image.open(io.BytesIO(r.content))
         img2 = np.asarray(img2)
