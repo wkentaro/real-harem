@@ -8,7 +8,9 @@ set -e
 cd $ROOT/transgender
 
 # install anaconda3
-$(pwd)/install_anaconda3.sh .
+if [ ! -e .anaconda3/bin/activate ]; then
+  curl https://raw.githubusercontent.com/wkentaro/dotfiles/3c249b5c1a7ceffe369cf63d51b7f64a0c773321/local/bin/install_anaconda3.sh | bash -s .
+fi
 set +x && source .anaconda3/bin/activate && set -x
 
 if [ ! -e StarGAN ]; then
@@ -18,7 +20,8 @@ cd $(pwd)/StarGAN
 
 # install pytorch
 conda install cuda80 pytorch torchvision -c soumith -y
-conda install dlib opencv -c menpo -y
+conda install dlib opencv -c conda-forge -y
+pip install -I numpy  # FIXME: needed after opencv installation
 pip install scikit-image
 
 $(pwd)/install_face2016.sh
