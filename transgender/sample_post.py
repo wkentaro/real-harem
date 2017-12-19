@@ -32,9 +32,10 @@ def main():
     if r.status_code == 200:
         img2 = PIL.Image.open(io.BytesIO(r.content))
         img2 = np.asarray(img2)
-        mask = (img2 != 0).all(axis=2)
-        img1_dash = img1.copy()
-        img1_dash[mask] = img2[mask]
+        img1_dash = img2
+        # mask = (img2 != 0).all(axis=2)
+        # img1_dash = img1.copy()
+        # img1_dash[mask] = img2[mask]
         plt.subplot(121)
         plt.imshow(img1)
         plt.subplot(122)

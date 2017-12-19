@@ -26,7 +26,7 @@ def transgender():
         # RGBA -> RGB
         img = img[:, :, :3]
     img.setflags(write=1)
-    img2 = node.process(img, return_facemask=True)
+    img2 = node.process(img, return_facemask=False)
     img_binary = ndarray_to_binary(img2)
     return send_file(io.BytesIO(img_binary), attachment_filename='image.jpg')
 
