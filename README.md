@@ -1,31 +1,30 @@
+<img src="https://drive.google.com/uc?id=174cjyuSrj47D5s_xmSQnbSmXM75WcvHG" align="right" width="300" />
+
 # REAL HAREM
 
+*Transgender of real persons to achieve real harem, with mixed reality on Hololens.*
 
-## 背景 / 目的
+This is a project in
+[the lecture "Intelligent Software"](http://www.mi.t.u-tokyo.ac.jp/ushiku/lectures/is/)
+at the University of Tokyo in winter 2017.
 
-現実世界における職場や学校には性別の偏りが多く、
-異性の目を気にしない習慣や環境への満足度の低下などの弊害を引き起こしていると考えられる。
-そこで本プロジェクトでは、
-**HMDを使って現実世界にいる人物の性別を転換し、異性がたくさんいる世界を演出する**
-ことを目的とする。
+<img src="https://drive.google.com/uc?id=1TiDzASgw_E70PSEJIX5rvML-uQ83a9_8" />
 
 
-## 技術的課題
+## Challenges
 
-1. 人の顔を上手くその人の特徴を残したまま性別転換すること。
-1. リアルタイムに顔の動きをトラッキングすること。
-1. トラッキングした顔に自然に生成画像を変換し貼り付けること。(毎フレーム1.をHMDで適用するのは現実的でないと予測）
-1. 服の性別変換を行うこと。
+- [x] Translate gender of person with remaining his/her face characteristic.
+- [x] Track face motion in real time.
+- [x] Paste the generated image onto the tracked face naturally. (transgender network won't run in real time, 60fps）
+- [ ] Translate gender of clothes.
 
-## TODO
 
-https://github.com/wkentaro/real-harem/projects/1
+## Features
 
----
 
-## Convert faces to female
+### Convert faces to female
 
-[@wkentaro](https://github.com/wkentaro)
+Author: [@wkentaro](https://github.com/wkentaro)
 
 **Sample**
 
@@ -36,9 +35,9 @@ make sample_transgender  # it translates gender of JSK lab members.
 ![](.readme/stargan_transgender_jsk.jpg)
 
 
-## Paste face to face
+### Paste face to face
 
-[@wkentaro](https://github.com/wkentaro)
+Author: [@wkentaro](https://github.com/wkentaro)
 
 **Sample**
 
@@ -47,3 +46,8 @@ make sample_paste_face  # it paste face to face.
 ```
 
 ![](.readme/face2face_wkentaro.jpg)
+
+
+## Shared data
+
+Google Drive: https://drive.google.com/open?id=1H8EkgFOWPfjuBbdn_w3cQhvdkZgLp7vo
