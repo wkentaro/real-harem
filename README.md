@@ -6,7 +6,7 @@ This is a project in
 [the lecture "Intelligent Software"](http://www.mi.t.u-tokyo.ac.jp/ushiku/lectures/is/)
 at the University of Tokyo in winter 2017.
 
-<img src="https://drive.google.com/uc?id=1TiDzASgw_E70PSEJIX5rvML-uQ83a9_8" />
+<img src="https://drive.google.com/uc?id=1TiDzASgw_E70PSEJIX5rvML-uQ83a9_8" width="50%" /> <img src="https://drive.google.com/uc?id=174cjyuSrj47D5s_xmSQnbSmXM75WcvHG" width="36.5%" />
 
 
 ## Challenges
@@ -21,8 +21,6 @@ at the University of Tokyo in winter 2017.
 
 
 ### Hololens demo
-
-![](https://drive.google.com/uc?id=174cjyuSrj47D5s_xmSQnbSmXM75WcvHG)
 
 **Server**
 
@@ -50,6 +48,8 @@ Deploy https://github.com/ban-masa/HoloFaceSamples/tree/real-harem to Hololens.
 ### Convert faces to female
 
 Author: [@wkentaro](https://github.com/wkentaro)
+
+We use [StarGAN](https://github.com/yunjey/StarGAN) for transgender.
 
 ```bash
 make sample_transgender  # it translates gender of JSK lab members.
