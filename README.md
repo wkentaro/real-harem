@@ -39,11 +39,12 @@ source .anaconda3/bin/activate
 ./sample_post.py
 ```
 
-**Client**
+**Client (Hololens)**
 
-```bash
-TODO(ban-masa)
-```
+Author: [@ban-masa](https://github.com/ban-masa)
+
+Deploy https://github.com/ban-masa/HoloFaceSamples/tree/real-harem to Hololens.  
+*Please check the URL of server.*
 
 
 ### Convert faces to female
