@@ -1,5 +1,3 @@
-<img src="https://drive.google.com/uc?id=174cjyuSrj47D5s_xmSQnbSmXM75WcvHG" align="right" width="300" />
-
 # REAL HAREM
 
 *Transgender of real persons to achieve real harem, with mixed reality on Hololens.*
@@ -19,14 +17,38 @@ at the University of Tokyo in winter 2017.
 - [ ] Translate gender of clothes.
 
 
-## Features
+## Usage
+
+
+### Hololens demo
+
+![](https://drive.google.com/uc?id=174cjyuSrj47D5s_xmSQnbSmXM75WcvHG)
+
+**Server**
+
+```bash
+# installation
+make sample_transgender
+
+cd transgender
+sudo bash
+source .anaconda3/bin/activate
+./runserver.py
+
+# client sample
+./sample_post.py
+```
+
+**Client**
+
+```bash
+TODO(ban-masa)
+```
 
 
 ### Convert faces to female
 
 Author: [@wkentaro](https://github.com/wkentaro)
-
-**Sample**
 
 ```bash
 make sample_transgender  # it translates gender of JSK lab members.
@@ -38,8 +60,6 @@ make sample_transgender  # it translates gender of JSK lab members.
 ### Paste face to face
 
 Author: [@wkentaro](https://github.com/wkentaro)
-
-**Sample**
 
 ```bash
 make sample_paste_face  # it paste face to face.
