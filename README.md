@@ -71,4 +71,7 @@ make sample_paste_face  # it paste face to face.
 
 ## Shared data
 
-Google Drive: https://drive.google.com/open?id=1H8EkgFOWPfjuBbdn_w3cQhvdkZgLp7vo
+- [All data](https://drive.google.com/open?id=1H8EkgFOWPfjuBbdn_w3cQhvdkZgLp7vo)
+- [Proposal ppt](https://drive.google.com/open?id=1H8NVqHPfGqQhsGrGBs5R1TFWZF2E-VRV)
+- [Rinko (Survey) ppt](https://drive.google.com/open?id=1c0P3DTVWtyem8r3Z6t-XENbdEOkhSJTk)
+- [Final demo ppt](https://drive.google.com/open?id=141NIbCRpNpCgqckLlYkeq5hXzsmcRZqx)
